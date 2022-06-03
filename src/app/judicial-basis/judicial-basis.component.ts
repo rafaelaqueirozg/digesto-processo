@@ -5,4 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './judicial-basis.component.html',
   styleUrls: ['./judicial-basis.component.scss'],
 })
-export class JudicialBasisComponent {}
+export class JudicialBasisComponent {
+  getCnj(cnj: string): void {
+    console.log(cnj);
+  }
+}
