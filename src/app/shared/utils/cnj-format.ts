@@ -23,7 +23,12 @@ export const CNJ_FIFTH_GROUP = {
   replace: '$1-$2.$3.$4.$5.',
 };
 
-export const CNJ = {
+export const CNJ_UNFORMATTED = {
   regex: new RegExp(/^(\d{7})(\d{2})(\d{4})(\d{1})(\d{2})(\d{4})/),
   replace: '$1-$2.$3.$4.$5.$6',
+};
+
+export const CNJ_FORMATTED = {
+  regex: new RegExp(/^(\d{7})-(\d{2}).(\d{4}).(\d{1}).(\d{2}).(\d{4})/),
+  replace: '$1$2$3$4$5$6',
 };

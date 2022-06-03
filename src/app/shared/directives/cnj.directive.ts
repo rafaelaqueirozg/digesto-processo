@@ -1,11 +1,11 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
 import {
-  CNJ,
   CNJ_FIFTH_GROUP,
   CNJ_FIRST_GROUP,
   CNJ_FORTH_GROUP,
   CNJ_SECOND_GROUP,
   CNJ_THIRD_GROUP,
+  CNJ_UNFORMATTED,
 } from '../utils/cnj-format';
 
 @Directive({
@@ -17,6 +17,10 @@ export class CnjDirective {
   constructor(private element: ElementRef) {}
 
   @HostListener('input', ['$event']) onInputChange(event: InputEvent): void {
+    if (event.inputType === 'deleteContentBackward') {
+      return;
+    }
+
     this.element.nativeElement.value = this.transformToCNJ(
       this.element.nativeElement.value,
       event
@@ -42,7 +46,7 @@ export class CnjDirective {
     } else if (newValue.length <= 20) {
       return newValue.replace(CNJ_FIFTH_GROUP.regex, CNJ_FIFTH_GROUP.replace);
     } else if (newValue.length <= 25) {
-      return newValue.replace(CNJ.regex, CNJ.replace);
+      return newValue.replace(CNJ_UNFORMATTED.regex, CNJ_UNFORMATTED.replace);
     } else {
       return '';
     }

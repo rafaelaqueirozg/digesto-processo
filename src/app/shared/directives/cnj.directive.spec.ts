@@ -8,7 +8,7 @@ import { CnjDirective } from './cnj.directive';
 })
 class TestCnjComponent {}
 
-fdescribe('Directive: Cnj', () => {
+describe('Directive: Cnj', () => {
   let component: TestCnjComponent;
   let fixture: ComponentFixture<TestCnjComponent>;
   let debugElement: DebugElement;
@@ -30,7 +30,7 @@ fdescribe('Directive: Cnj', () => {
     expect(inputElement.value).toBe('2');
   });
 
-  it('should transform value to CNJ pattern', () => {
+  it('should transform value to CNJ_UNFORMATTED pattern', () => {
     inputElement.value = '50016828820208130672';
     debugElement.triggerEventHandler('input', {});
     expect(inputElement.value).toBe('5001682-88.2020.8.13.0672');
