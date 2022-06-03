@@ -7,6 +7,16 @@ const routes: Routes = [
   {
     path: 'digesto',
     component: DigestoComponent,
+    children: [
+      { path: '', pathMatch: 'full', redirectTo: 'judicial-basis' },
+      {
+        path: 'judicial-basis',
+        loadChildren: () =>
+          import('./judicial-basis/judicial-basis.module').then(
+            (m) => m.JudicialBasisModule
+          ),
+      },
+    ],
   },
 ];
 
