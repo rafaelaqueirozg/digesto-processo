@@ -92,11 +92,11 @@ describe('CnjFilterComponent', () => {
 
     it('should emit cnj value if is valid', () => {
       spyOn(component['filterCnj'], 'emit');
-      component['cnjControl'].setValue('0002265-89.2011.8.26.0012');
+
+      const value = '0002265-89.2011.8.26.0012';
+      component['cnjControl'].setValue(value);
       component.submitForm();
-      expect(component['filterCnj'].emit).toHaveBeenCalledWith(
-        component['cnjControl'].value
-      );
+      expect(component['filterCnj'].emit).toHaveBeenCalledWith(value);
     });
   });
 });

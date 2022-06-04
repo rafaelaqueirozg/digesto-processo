@@ -28,6 +28,7 @@ export class CnjFilterComponent {
   submitForm(): void {
     if (this.cnjControl.valid) {
       this.filterCnj.emit(this.cnjControl.value);
+      this.form.reset();
     }
   }
 
