@@ -27,28 +27,26 @@ export class CnjDirective {
     );
   }
 
-  private transformToCNJ(value: string, event: InputEvent): string {
+  private transformToCNJ(value: string, event: InputEvent): string | void {
     let newValue: string = value.replace(/\D/g, '');
 
     if (value.length > this.MAX_LENGTH) {
       event.stopImmediatePropagation();
-      return value.substring(0, this.MAX_LENGTH - 1);
+      return value.substring(0, this.MAX_LENGTH);
     }
 
     if (newValue.length <= 7) {
       return newValue.replace(CNJ_FIRST_GROUP.regex, CNJ_FIRST_GROUP.replace);
-    } else if (newValue.length <= 10) {
+    } else if (newValue.length <= 9) {
       return newValue.replace(CNJ_SECOND_GROUP.regex, CNJ_SECOND_GROUP.replace);
-    } else if (newValue.length <= 15) {
+    } else if (newValue.length <= 13) {
       return newValue.replace(CNJ_THIRD_GROUP.regex, CNJ_THIRD_GROUP.replace);
-    } else if (newValue.length <= 17) {
+    } else if (newValue.length <= 14) {
       return newValue.replace(CNJ_FORTH_GROUP.regex, CNJ_FORTH_GROUP.replace);
-    } else if (newValue.length <= 20) {
+    } else if (newValue.length <= 16) {
       return newValue.replace(CNJ_FIFTH_GROUP.regex, CNJ_FIFTH_GROUP.replace);
-    } else if (newValue.length <= 25) {
+    } else if (newValue.length <= 20) {
       return newValue.replace(CNJ_UNFORMATTED.regex, CNJ_UNFORMATTED.replace);
-    } else {
-      return '';
     }
   }
 }
