@@ -1,0 +1,27 @@
+<section class="my-5">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Detalhes do processo</h4>
+      <p class="card-text">
+        {{ process.area }} / {{ process.instance }}ª instância
+      </p>
+      <p class="card-text">{{ process.natureClass }}</p>
+      <p class="card-text">{{ process.extraSubject }}</p>
+
+      <div class="list-group">
+        <div class="d-flex w-100 justify-content-between">
+          <strong class="mb-1 text-muted">Comarca</strong>
+          <span>{{ process.judicialDistrict | titlecase }}</span>
+        </div>
+        <div class="d-flex w-100 justify-content-between">
+          <strong class="mb-1 text-muted">Data de distribuição</strong>
+          <span>{{ process.distributionDate | date: "dd/MM/yyyy" }}</span>
+        </div>
+        <div class="d-flex w-100 justify-content-between">
+          <strong class="mb-1 text-muted">Valor da causa</strong>
+          <span>{{ process.value | currency: "BRL" }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

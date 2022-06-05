@@ -1,0 +1,28 @@
+<form class="row g-3" [formGroup]="form" (submit)="submitForm()">
+  <div class="col-12 col-md-9">
+    <label for="cnj-input" class="form-label">
+      Número do processo no Tribunal
+    </label>
+    <input
+      cnj
+      type="text"
+      id="cnj-input"
+      maxlength="25"
+      class="form-control"
+      formControlName="cnj"
+      placeholder="Exemplo: XXXXXXX-XX.XXXX.X.XX.XXXX"
+    />
+    <div *ngIf="hasCnjErrors()" class="invalid-feedback d-block">
+      {{ getCnjErrorMessage() }}
+    </div>
+  </div>
+  <div class="col-12 col-md-3 d-md-flex justify-content-end align-items-end">
+    <button
+      type="submit"
+      class="btn btn-primary w-100"
+      [disabled]="form.invalid"
+    >
+      <i class="bi bi-search me-2"></i> Buscar
+    </button>
+  </div>
+</form>

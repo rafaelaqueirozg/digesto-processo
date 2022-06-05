@@ -1,0 +1,55 @@
+<section class="my-5">
+  <h3>{{ attachments.length }} Autos</h3>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" colspan="3">Tipo</th>
+          <th scope="col" colspan="2">Data</th>
+          <th scope="col" colspan="5">Amostra</th>
+          <th scope="col" colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let item of paginator.paginatedList">
+          <tr>
+            <td colspan="3" class="text-truncate" style="max-width: 200px">
+              <a [href]="item.downloadUrl" target="_blank">{{ item.title }}</a>
+            </td>
+            <td colspan="2">
+              {{ item.obtainingDate | date: "dd/MM/yyyy" }}
+            </td>
+            <td colspan="5" class="text-truncate" style="max-width: 300px">
+              {{ item.textContent }}
+            </td>
+            <td colspan="2">
+              <button
+                type="button"
+                aria-expanded="false"
+                data-bs-toggle="collapse"
+                class="btn btn-link link-info"
+                [attr.data-bs-target]="'#collapseAttachment' + item.id"
+                [attr.aria-controls]="'collapseAttachment' + item.id"
+              >
+                Ver mais <i class="bi bi-chevron-down ms-2"></i>
+              </button>
+            </td>
+          </tr>
+          <tr
+            class="collapse bg-secondary bg-opacity-10"
+            [id]="'collapseAttachment' + item.id"
+          >
+            <td colspan="12">
+              <p class="m-3" style="max-width: 80vw">
+                {{ item.textContent }}
+              </p>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+
+  <app-paginator [paginator]="paginator"></app-paginator>
+</section>

@@ -1,27 +1,44 @@
 # DigestoProcesso
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+**DigestoProcesso** é uma aplicação web que busca as informações de processos pelo número de CNJ, eliminando a necessidade de uma pessoa advogada ter que acessar os sites dos tribunais de cada estado.
 
-## Development server
+# 🚀 Tecnologias
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Angular 13
+- Typescript
+- Bootstrap 5
+- Jasmine
 
-## Code scaffolding
+# 📑 Conceitos e técnicas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Lazy Loading
+- Interceptors
+- Expressões Regulares
+- Diretivas customizadas
+- Programação Reativa com RxJS
+- Commits semânticos
+  - Conventional Commits
+- 100% de cobertura de testes
+- Adapter Pattern para normalizar resposta vinda da api
 
-## Build
+# 🏗️ Estrutura utilizada
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Segui a estrutura [Folders-by-feature](https://angular.io/guide/styleguide#file-tree), sugirida pela própria documentação do Angular.
 
-## Running unit tests
+# 🤓 Como usar
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+# Clone este repositório
+git clone https://github.com/rafaelaqueirozg/digesto-processo.git
 
-## Running end-to-end tests
+# Entre na pasta web
+cd digesto-processo
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Instale as dependências
+npm install
 
-## Further help
+# Rode o frontend
+npm start
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# O projeto rodará na porta 4200
+```
