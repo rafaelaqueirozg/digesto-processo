@@ -1,0 +1,34 @@
+<section class="my-5">
+  <h3>Processos relacionados</h3>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Número do processo</th>
+          <th scope="col">Data de distribuição</th>
+          <th scope="col">Tribunal</th>
+          <th scope="col">Natureza</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let item of paginator.paginatedList">
+          <tr>
+            <td>{{ item.caseNumber | cnj }}</td>
+            <td>
+              {{ item.distributionDate | date: "dd/MM/yyyy" }}
+            </td>
+            <td>
+              {{ item.tribunal }}
+            </td>
+            <td>
+              {{ item.caseNature }}
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+
+  <app-paginator [paginator]="paginator"></app-paginator>
+</section>
