@@ -1,0 +1,53 @@
+<section class="my-5">
+  <h3>{{ movements.length }} Movimentações</h3>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" colspan="3">Data</th>
+          <th scope="col" colspan="3">Tipo</th>
+          <th scope="col" colspan="4">Texto</th>
+          <th scope="col" colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let item of paginator.paginatedList">
+          <tr>
+            <td colspan="3">{{ item.date | date: "dd/MM/yyyy" }}</td>
+            <td colspan="3">
+              {{ item.type }}
+            </td>
+            <td colspan="4" class="text-truncate" style="max-width: 300px">
+              {{ item.text }}
+            </td>
+            <td colspan="2">
+              <button
+                type="button"
+                class="btn btn-link link-info"
+                data-bs-toggle="collapse"
+                [attr.data-bs-target]="'#collapseMovement' + item.id"
+                aria-expanded="false"
+                [attr.aria-controls]="'collapseMovement' + item.id"
+              >
+                Ver mais <i class="bi bi-chevron-down ms-2"></i>
+              </button>
+            </td>
+          </tr>
+          <tr
+            class="collapse bg-secondary bg-opacity-10"
+            [id]="'collapseMovement' + item.id"
+          >
+            <td colspan="12">
+              <p class="m-3" style="max-width: 80vw">
+                {{ item.text }}
+              </p>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+
+  <app-paginator [paginator]="paginator"></app-paginator>
+</section>
