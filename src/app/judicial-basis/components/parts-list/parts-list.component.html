@@ -1,0 +1,38 @@
+<section class="my-5">
+  <h3>Partes</h3>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Tipo</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Advogado</th>
+          <th scope="col">OAB</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let item of parts">
+          <tr>
+            <td>
+              <strong class="text-muted">{{ item.normalizedRelation }}</strong>
+            </td>
+            <td>{{ item.name }}</td>
+            <td>
+              <ng-container *ngFor="let lawyer of item.lawyers">
+                <span class="d-block"> {{ lawyer.name || "—" }}</span>
+              </ng-container>
+            </td>
+            <td>
+              <ng-container *ngFor="let lawyer of item.lawyers">
+                <span class="d-block"> {{ lawyer.oab || "—" }}</span>
+              </ng-container>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+
+  <app-paginator [paginator]="paginator"></app-paginator>
+</section>
