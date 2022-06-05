@@ -1,7 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { Cnj, OperationStatus } from '../models/cnj.model';
+import { CnjAdapter } from '../adapters/cnj.adapter';
+import {
+  CnjFromApi,
+  OperationStatus,
+} from '../interfaces/cnj-from-api.interface';
+import { CnjInterface } from '../interfaces/cnj.interface';
 
 const BY_PROCESS_CNJ = 5;
 
@@ -11,20 +16,13 @@ const BY_PROCESS_CNJ = 5;
 export class CnjService {
   private apiURL = `/api/tribproc`;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private cnjAdapter: CnjAdapter) {}
 
-  getProcess(cnj: string): Observable<Cnj> {
+  getProcess(cnj: string): Observable<CnjInterface> {
     return this.httpClient
-      .get<Cnj | OperationStatus>(
+      .get<CnjFromApi | OperationStatus>(
         `${this.apiURL}/${cnj}?tipo_numero=${BY_PROCESS_CNJ}`
       )
-      .pipe(map((response) => this.adapterResponse(response)));
-  }
-
-  private adapterResponse(response: Cnj | OperationStatus): Cnj {
-    if ((response as OperationStatus).status_op) {
-      return {} as Cnj;
-    }
-    return response as Cnj;
+      .pipe(map((response) => this.cnjAdapter.adapt(response)));
   }
 }

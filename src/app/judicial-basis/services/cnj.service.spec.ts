@@ -3,8 +3,8 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { cnjMock } from '../mocks/cnj.mock';
-import { Cnj } from '../models/cnj.model';
+import { CnjInterface } from '../interfaces/cnj.interface';
+import { cnjFromApiMock, cnjMock } from '../mocks/cnj.mock';
 import { CnjService } from './cnj.service';
 
 describe('CnjService', () => {
@@ -28,7 +28,7 @@ describe('CnjService', () => {
     const cnj = '5001682-88.2020.8.13.0000';
 
     service.getProcess(cnj).subscribe((process) => {
-      expect(process).toEqual({} as Cnj);
+      expect(process).toEqual({} as CnjInterface);
       done();
     });
 
@@ -47,6 +47,6 @@ describe('CnjService', () => {
 
     httpController
       .expectOne(`${service['apiURL']}/${cnj}?tipo_numero=5`)
-      .flush(cnjMock);
+      .flush(cnjFromApiMock);
   });
 });
