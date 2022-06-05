@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { STANDARDIZED_TYPE_DIGESTO } from 'src/app/shared/utils/standardized-type-digest';
+import { STANDARDIZED_TYPE_DIGESTO } from 'src/app/shared/utils/standardized-type-digesto';
 import { Adapter } from '../interfaces/adapter.interface';
 import { MovementInterface } from '../interfaces/movement.interface';
 import { Movs } from '../types/movs.type';
