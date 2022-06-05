@@ -1,6 +1,6 @@
 import { Paginator } from './paginator';
 
-describe('JudicialBasisComponent', () => {
+describe('Paginator', () => {
   let paginator: Paginator<string> = new Paginator(
     Array.from({ length: 100 }).map((item, index) => 'item' + index)
   );
