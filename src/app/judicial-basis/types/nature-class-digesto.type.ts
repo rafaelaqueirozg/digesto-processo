@@ -1,0 +1,41 @@
+/**
+ * - 0 - OUTROS
+ * - 1 - PENAL
+ * - 2 - CÍVEL
+ * - 3 - ADMINISTRATIVO
+ * - 4 - TRIBUTÁRIO
+ * - 5 - TRABALHISTA
+ * - 6 - PREVIDENCIÁRIA
+ * - 7 - CAUTELAR OU MEDIDA PRÉ-PROCESSUAL
+ * - 8 - INCIDENTES PROCESSUAIS
+ * - 9 - RECURSOS E REMÉDIOS CONSTITUCIONAI
+ * - 10 - REMÉDIOS CONSTITUCIONAIS
+ * - 11 - MILITAR
+ * - 12 - JUIZADO ESPECIAL CIVEL
+ * - 13 - JUIZADO ESPECIAL FEDERAL
+ * - 14 - JUIZADO ESPECIAL CRIMINAL
+ * - 15 - SUPREMO TRIBUNAL FEDERAL
+ * - 16 - SUPERIOR TRIBUNAL DE JUSTIÇA
+ * - 17 - ARQUIVO
+ * - 18 - AÇÃO CIVIL PÚBLICA
+ */
+export type NatureClassDigesto =
+  | 0
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 10
+  | 11
+  | 12
+  | 13
+  | 14
+  | 15
+  | 16
+  | 17
+  | 18;
