@@ -1,6 +1,6 @@
-import { StandardizedDigestoType } from 'src/app/judicial-basis/types/standardized-digesto.type';
-
-export const STANDARDIZED_TYPE_DIGESTO: StandardizedDigestoType = {
+export const STANDARDIZED_TYPE_DIGESTO: {
+  [key: string]: { [key: string]: string };
+} = {
   '0': { '0': 'Desconhecido' },
   '1': { '1': 'Agravo de Instrumento Interposto' },
   '2': {

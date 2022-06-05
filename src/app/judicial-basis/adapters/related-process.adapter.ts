@@ -9,23 +9,15 @@ import {
 export class RelatedProcessAdapter
   implements Adapter<RelatedProcessInterface, RelatedProcessFromApi>
 {
-  adapt({
-    id,
-    distribuicao_data,
-    codigo_identificador,
-    instancia,
-    natureza,
-    numero,
-    tribunal,
-  }: RelatedProcessFromApi): RelatedProcessInterface {
+  adapt(item: RelatedProcessFromApi): RelatedProcessInterface {
     return {
-      id,
-      tribunal,
-      caseNumber: numero,
-      instance: instancia,
-      caseNature: natureza,
-      distributionDate: distribuicao_data,
-      identifierCode: codigo_identificador,
+      id: item.id,
+      tribunal: item.tribunal,
+      caseNumber: item.numero,
+      instance: item.instancia,
+      caseNature: item.natureza,
+      distributionDate: item.distribuicao_data,
+      identifierCode: item.codigo_identificador,
     };
   }
 }

@@ -1,3 +1,1 @@
-export type StandardizedDigestoType = {
-  [key: string]: { [key: string]: string };
-};
+export type StandardizedDigestoType = Array<Array<number | string>>;
